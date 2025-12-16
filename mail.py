@@ -1,8 +1,8 @@
+import smtplib
 import os
 from dotenv import load_dotenv
 load_dotenv()
 
-import smtplib
 
 letter = f"""From: {os.environ['HIDDEN-LOGIN']}
 To: {os.environ['HIDDEN-LOGIN']}
