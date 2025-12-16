@@ -8,7 +8,7 @@ letter = f"""From: {os.environ['HIDDEN-LOGIN']}
 To: {os.environ['HIDDEN-LOGIN']}
 Subject: Приглашение!
 Content-Type: text/plain; charset="UTF-8";"""
-
+letter = letter.encode("UTF-8")
 
 text = """
 
@@ -34,17 +34,14 @@ text = """
 text = text.replace("%friend_name%", "Гильермо")
 text = text.replace("%my_name%", "Владос")
 text = text.replace("%website%", "https://dvmn.org/profession-ref-program/kukarachae/kyV0o/")
-
-
-letter_text = (letter + text)
-letter_text = letter_text.encode("UTF-8")
+text = text.encode("UTF-8")
 
 
 login = os.environ['HIDDEN-LOGIN']
 password = os.environ['HIDDEN-PASSWORD']
 email_from = os.environ['HIDDEN-LOGIN']
 email_to = os.environ['HIDDEN-LOGIN']
-message = letter_text
+message = letter + text
 
 
 server = smtplib.SMTP_SSL('smtp.yandex.ru', 465)
